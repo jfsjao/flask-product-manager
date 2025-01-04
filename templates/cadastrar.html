@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Produto</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastrar Novo Produto</h1>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form method="POST" class="form-container">
+            <label for="nome">Nome do Produto:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="descricao">Descrição do Produto:</label>
+            <textarea id="descricao" name="descricao" required></textarea>
+
+            <label for="valor">Valor do Produto:</label>
+            <input type="number" id="valor" name="valor" step="0.01" required>
+
+            <label for="disponivel">Disponível para Venda:</label>
+            <select id="disponivel" name="disponivel">
+                <option value="sim">Sim</option>
+                <option value="não">Não</option>
+            </select>
+
+            <button type="submit" class="btn">Cadastrar</button>
+        </form>
+        <button class="btn" onclick="window.location.href='/'">Voltar para Listagem</button>
+    </div>
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
